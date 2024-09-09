@@ -1,3 +1,5 @@
+springapplication.name: Service1
+server.port: 8081
 logging:
   level:
     org:
