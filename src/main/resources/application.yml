@@ -1,4 +1,14 @@
-springapplication.name: Service1
+spring:
+  application:
+    name: service1
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
 server.port: 8081
 logging:
   level:

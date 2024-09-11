@@ -29,6 +29,7 @@
 	<properties>
 		<java.version>22</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,6 +41,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -53,6 +55,10 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.zalando</groupId>
 			<artifactId>logbook-spring-boot-starter</artifactId>
 			<version>3.9.0</version>
@@ -64,6 +70,28 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.3</version>
+				<configuration>
+					<container>
+						<mainClass>com.val.mch.opentelemetry.Service1.Service1Application</mainClass>
+						<args>
+							<arg>-javaagent:/opentelemetry-javaagent.jar</arg>
+							<arg>-Dotel.service.name=service2</arg>
+							<arg>-Dotel.traces.exporter=otlp</arg>
+							<arg>-Dotel.logs.exporter=otlp</arg>
+						</args>
+					</container>
+					<from>
+						<image>openjdk:22</image>
+					</from>
+					<to>
+						<image>maximec44/mch-service2:latest</image>
+					</to>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
