@@ -1,4 +1,4 @@
-package com.val.mch.opentelemetry.Service1.config.log;
+package com.val.mch.opentelemetry.service1.config.log;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

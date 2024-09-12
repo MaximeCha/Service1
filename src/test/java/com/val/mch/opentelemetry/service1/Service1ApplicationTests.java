@@ -1,4 +1,4 @@
-package com.val.mch.opentelemetry.Service1;
+package com.val.mch.opentelemetry.service1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
