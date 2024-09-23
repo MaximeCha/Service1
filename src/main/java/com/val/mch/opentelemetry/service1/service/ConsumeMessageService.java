@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class ConsumeMessageService {
 
-    @RabbitListener(queues = "someQueue")
+    @RabbitListener(queues = "myQueue")
     public void consumeMessage(String messageBody) {
         log.info("Consumed Message: " + messageBody);
     }
